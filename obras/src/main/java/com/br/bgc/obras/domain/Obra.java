@@ -3,6 +3,7 @@ package com.br.bgc.obras.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 
 @Builder
 @AllArgsConstructor
@@ -12,8 +13,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(schema = "OBRA", name = "OBRA")
 public class Obra {
     @Id
-    @GenericGenerator(name = "UUIDGenerator", strategy = "uuid2")
-    @GeneratedValue(generator = "UUIDGenerator")
+    @UuidGenerator
+    @GeneratedValue
     @Column(name = "ID")
     private String id;
 
@@ -24,6 +25,4 @@ public class Obra {
     @Setter
     @Column(name = "ENDERECO")
     private String endereco;
-
-
 }

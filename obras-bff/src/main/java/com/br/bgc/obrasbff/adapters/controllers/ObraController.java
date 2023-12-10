@@ -25,10 +25,9 @@ public class ObraController {
 
     @PostMapping
     public ResponseEntity<Void> post(@Valid @RequestBody CriarObraCommand command) {
-        var obra = service.criar(command);
-        var uri = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(ObraController.class)
-                .get(obra.id())).toUri();
-        return ResponseEntity.created(uri).build();
+        service.criar(command);
+        //return ResponseEntity.created("").build();
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
